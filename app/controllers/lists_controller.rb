@@ -11,7 +11,7 @@ class ListsController < ApplicationController
 
   def create
     @list = @user.lists.new list_params
-    if @list.save
+    if @user.save
       redirect_to user_lists_path(@user), notice: 'Congratulation! You have added a new list.'
     else
       render 'new'
