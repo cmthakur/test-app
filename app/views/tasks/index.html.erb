@@ -1,0 +1,23 @@
+<%= link_to 'Add New task', new_user_list_task_path(@user, @list), :class => 'btn btn-primary' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>List Name</th>
+      <th>SubTasks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.name %></td>
+        <td><%= link_to task.list.try(:name), user_lists_path(@user) %></td>
+        <td><%= link_to task.sub_tasks.count, '#' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
